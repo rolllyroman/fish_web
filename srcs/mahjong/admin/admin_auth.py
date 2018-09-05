@@ -116,7 +116,7 @@ def do_login(redis,session):
     #记录登录日志
     agentOpLog(redis,account,1,request.remote_addr)
 
-    return redirect('/admin')
+    return redirect('/admin/FISH')
 
 @admin_app.get('/vcode')
 def changeVerfiyCode(session):

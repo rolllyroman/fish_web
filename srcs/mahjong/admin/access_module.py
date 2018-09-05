@@ -169,7 +169,7 @@ ACCESS_SADMIN_MODULES = (
 
     AccessObj(("fish", "order/level/query_list"), 'GET', 'MENU_FISH_SETTING_LEVEL_TXT'), \
     #捕鱼数据
-    AccessObj(("fish", "agent/list"), 'GET', 'MENU_FISH_AGENT_LIST'), \
+    AccessObj(("fish", "agent/list"), 'GET', 'MENU_FISH_GUILD_LIST'), \
     AccessObj(("fish", "chargeAndOrder"), 'GET', 'MENU_FISH_CHARGE_AND_ORDERS'), \
     AccessObj(("fish", "item/list"), 'GET', 'MENU_FISH_ITEM_LIST_TXT'), \
     AccessObj(("fish", "statis/test"), 'GET', 'MENU_FISH_STATIS_TXT'), \

@@ -33,6 +33,14 @@ MAIL_ITEMS = [
     {'title':'弹头','field':'2'},
 ]
 
+@admin_app.get('/fish/agent/list')
+@checkAccess
+def do_inner(redis,session):
+    """
+        捕鱼公会列表
+    """
+
+
 @admin_app.get('/fish/item/can_use')
 @checkAccess
 def do_inner(redis,session):
