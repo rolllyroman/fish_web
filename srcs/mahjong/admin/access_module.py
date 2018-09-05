@@ -124,7 +124,7 @@ FISH_MENU_MODULES = (
     AccessObj(("fish", "chargeAndOrder"), 'GET', 'MENU_FISH_CHARGE_AND_ORDERS'), \
     AccessObj(("fish", "item/list"), 'GET', 'MENU_FISH_ITEM_LIST_TXT'), \
     AccessObj(("fish", "room/list"), 'GET', 'MENU_FISH_ROOM_LIST_TXT'), \
-    AccessObj(("fish", "statis"), 'GET', 'MENU_FISH_STATIS_TXT'), \
+    # AccessObj(("fish", "statis"), 'GET', 'MENU_FISH_STATIS_TXT'), \
     AccessObj(("fish", "send/system/mail"), 'GET', 'MENU_FISH_SEND_MAIL_TXT'), \
     AccessObj(("fish", "props"), 'GET', 'MENU_FISH_PROPS_TXT'), \
     #捕鱼信息公告管理
