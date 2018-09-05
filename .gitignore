@@ -1,0 +1,10 @@
+/srcs/PIL
+
+/srcs/PILBIN
+*.zip
+*.rar
+
+*.pyc
+
+
+

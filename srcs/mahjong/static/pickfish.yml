@@ -1,0 +1,542 @@
+swagger: '3.0'
+info: {title: bottle-swagger, version: 3.0.0}
+produces: [application/json]
+consumes: [application/json]
+definitions:
+  response_success:
+    properties:
+      code:
+        type: integer
+        description: 编号 1= 失败 0=成功
+      msg:
+        type: string
+        description: 信息
+    type: object
+  response_success_exchange_code:
+    properties:
+      code:
+        type: integer
+        description: 编号 1= 失败 0=成功
+      list:
+        items:
+          type: object
+          properties:
+            code:
+              description: 类型 1=金币 2=奖票
+              type: integer
+            number:
+              type: integer
+              description: 数量
+            type:
+              type: string
+              description: 类型说明
+        type:  array
+    type: object
+  response_active_success:
+    properties:
+      code:
+        type: integer
+        description: 编号 1= 失败 0=成功
+      data:
+        list:
+        items:
+          description: 活动列表
+          type: object
+          properties:
+            title:
+              description: 活动标题
+              type: string
+            code:
+              description: 类型 1 = 一帆風順 2 =福禄双收
+              type: integer
+            route:
+              properties:
+                method:
+                  description: "GET, POST, DELETE, PUT, LOCAL"
+                  type: string
+                url:
+                  description: 请求地址
+                  type: string
+                params:
+                  type: object
+                  description: 参数
+              description: 路由
+              type: object
+            posterUrl:
+              type: string
+              description: 图片地址
+        type:  array
+    type: object
+  response_question_success:
+    properties:
+      code:
+        type: integer
+        description: 编号 1= 失败 0=成功
+      data:
+        list:
+        items:
+          description: 问题列表
+          type: object
+          properties:
+            id:
+              description: 题目id
+              type: integer
+            question:
+              description: 问题
+              type: string
+            answer:
+              description: 答案列表
+              items:
+                description:  答案内容
+                type: string
+              type: array
+            formType:
+              description: 表单类型 ： 1单选  2多选
+              type: interger
+            correct:
+              type: string
+              description: 正确答案序号，多个用","分隔
+        type:  array
+        title:
+          description: 答题标题
+          type: string
+        desc:
+          description: 答题活动描述
+          type: string
+    type: object
+  response_surver_success:
+    properties:
+      code:
+        type: integer
+        description: 编号 1= 失败 0=成功
+      data:
+        list:
+        items:
+          description: 问卷
+          type: object
+          properties:
+            id:
+              description: 题目id
+              type: integer
+            question:
+              description: 问题
+              type: string
+            answer:
+              description: 答案列表
+              items:
+                description:  答案内容
+                type: string
+              type: array
+            formType:
+              description: 表单类型 ： 1单选  2多选
+              type: interger
+        type:  array
+        title:
+          description: 问卷标题
+          type: string
+        desc:
+          description: 问卷描述
+          type: string
+    type: object
+  response_success_apply_list:
+    properties:
+      code:
+        type: integer
+        description: 编号 1= 失败 0=成功
+      list:
+        items:
+          type: object
+          properties:
+            account:
+              description: 账号信息
+              type: string
+            nickname:
+              type: string
+              description: 姓名
+            avatar_url:
+              type: string
+              description: 头像地址
+            status:
+              type: object
+              properties:
+                code:
+                  type: integer
+                  description: 状态类型
+                name:
+                  type: string
+                  description: 状态类型名称
+            club_number:
+              type: string
+              description: 俱乐部编号
+        type:  array
+    type: object
+  response_success_club_player_list:
+    properties:
+      code:
+        type: integer
+        description: 编号 1= 失败 0=成功
+      list:
+        items:
+          type: object
+          properties:
+            account:
+              description: 账号信息
+              type: string
+            nickname:
+              type: string
+              description: 姓名
+            avatar_url:
+              type: string
+              description: 头像地址
+            isManager:
+              type: integer
+              description: 是否是管理员 1=是 0=不是
+        type:  array
+  response_success_room_list:
+    properties:
+      code:
+        type: integer
+        description: 编号 1= 失败 0=成功
+      roomData:
+        items:
+          type: object
+          properties:
+            gameName:
+              description: 游戏名称
+              type: string
+            dealer:
+              type: string
+              description: 庄家
+            playerCount:
+              type: string
+              description: 玩家数量
+            maxPlayer:
+              type: integer
+              description: 最大玩家数
+            roomNum:
+              type: string
+              description: 房间号码
+            gameid:
+              type: integer
+              description: 游戏ID
+            ruleText:
+              type: string
+              description: 规则
+            baseScore:
+              type: integer
+              description: 分数
+            auto_id:
+              type: integer
+              description: 自动开房编号-1=不是自动开房 1-5=自动开房ID编号
+            gameType:
+              type: integer
+              description: 游戏类型 0=麻将 1=牛牛 2=斗地主
+            gameState:
+              type: integer
+              description: 游戏类型 -1=没有找到游戏状态 1=游戏中 2=已结束 0=没有开始
+            player_list:
+              type: array
+              items:
+                type: object
+                properties:
+                  nickname:
+                    type: string
+                    description: 玩家姓名
+                  avatar_url:
+                    type: string
+                    description: 玩家头像
+                  account:
+                    type: string
+                    description: 玩家账号
+        type:  array
+
+  response_success_get_one:
+    properties:
+      code:
+        type: integer
+        description: 编号 1= 失败 0=成功
+      data:
+        properties:
+          people_number:
+            description: 玩家数量
+            type: string
+          club_name:
+            type: string
+            description: 俱乐部名称
+          club_user:
+            type: string
+            description: 创建人的ACCOUNT
+          club_max_players:
+            type: integer
+            description: 最大玩家数
+          club_manager:
+            type: string
+            description: 管理员列表
+          club_is_vip:
+            type: integer
+            description: 是否是VIP俱乐部
+          club_agent:
+            type: string
+            description: 公会
+        type:  object
+    type: object
+  response_club_intosuccess:
+    properties:
+      code:
+        type: integer
+        description: 编号 1= 失败 0=成功
+      prompt:
+        type: object
+        properties:
+          status:
+            type: integer
+            description: 消息状态 0=没有消息 1=存在消息
+          content:
+            type: string
+            description: 消息内容
+
+      data:
+        type: object
+        properties:
+          playerNumber:
+            type: integer
+            description: 总玩家数量
+          active:
+            type: integer
+            description: 在线玩家数量
+          roomNumber:
+            type: integer
+            description: 房间数量
+          roomActiveNumber:
+            type: integer
+            description: 游戏中的房间数量
+    type: object
+
+  response_auto_create_uccess:
+    properties:
+      code:
+        type: integer
+        description: 编号 1= 失败 0=成功
+      list:
+        items:
+          type: object
+          properties:
+            gameid:
+              description: 游戏ID
+              type: string
+            rule:
+              description: 规则
+              type: string
+            id:
+              description: 编号ID
+              type: integer
+            rule_text:
+              description: 规则文字
+              type: string
+            game_name:
+              description: 游戏名称
+              type: string
+        type: array
+    type: object
+
+  response_success_history:
+    properties:
+      code:
+        type: integer
+        description: 编号 1= 失败 0=成功
+      win_data:
+        type: array
+        items:
+          type: object
+          properties:
+            account:
+              type: string
+              description: 账号
+            nickname:
+              type: string
+              description: 名字
+            number:
+              type: integer
+              description: 次数
+            dataTable:
+              type: array
+              description: 返回的路径数据
+            score:
+              type: integer
+              description: 分数
+          description: 大赢家数据
+      list:
+        items:
+          type: object
+          properties:
+            time:
+              description: 时间
+              type: string
+            room_id:
+              description: 房间号
+              type: string
+            room_master:
+              description: 房间创建人
+              type: string
+            game_name:
+              type: string
+              description: 游戏名称
+            game_id:
+              type: string
+              description: 游戏ID
+            data:
+              type: string
+              description: 需要标记的地址
+            tag:
+              type: integer
+              description: 是否被标记过
+            score:
+              type: array
+              items:
+                type: object
+                properties:
+                  nickname:
+                    type: string
+                    description: 姓名
+                  account:
+                    type: string
+                    description: 账号
+                  score:
+                    type: integer
+                    description: 分数
+                  win:
+                    type: integer
+                    description: 大赢家标签，存在=1就是大赢家其他玩家没有
+        type:  array
+    type: object
+  response_setting_success:
+    properties:
+      code:
+        type: integer
+        description: 编号 1= 失败 0=成功
+      list:
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              description: 游戏名称
+              type: string
+            relationOptsAnd:
+              description: ''
+              type: string
+            relationOptsOr:
+              description: 房间创建人
+              type: string
+            optionType:
+              type: string
+              description: 选项类型
+            gameId:
+              type: string
+              description: 游戏ID
+            ruleUrl:
+              type: string
+              description: 规则URL
+            optionsData:
+              type: array
+              description: 规则列表
+            cardUseDatas:
+              type: array
+              items:
+                type: object
+                properties:
+                  card:
+                    type: integer
+                    description: 房卡
+                  name:
+                    type: string
+                    description: 显示名称
+    type: object
+
+
+paths:
+  /fish/exchageCode:
+    post:
+      summary: 兑换码物品
+      description: 兑换码物品
+      parameters:
+        - {in: formData, description: "玩家SID", name: sid, required: true, type: string }
+        - {in: formData, description: "兑换码", name: code, required: true, type: string }
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      responses:
+        '200':
+          description: ''
+          schema: {$ref: '#/definitions/response_success_exchange_code'}
+      tags:
+        - code_exchage
+
+  /fish/exchageCodeCheck:
+    post:
+      summary: 是否已经兑换过
+      description: 是否已经兑换过
+      parameters:
+        - {in: formData, description: "玩家SID", name: sid, required: true, type: string }
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      responses:
+        '200':
+          description: ''
+          schema: {$ref: '#/definitions/response_success'}
+      tags:
+        - code_exchage
+
+  /fish/actives:
+    post:
+      summary: 活动列表
+      description: 活动列表
+      parameters:
+        - {in: formData, description: "玩家SID", name: sid, required: true, type: string }
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      responses:
+        '200':
+          description: ''
+          schema: {$ref: '#/definitions/response_active_success'}
+      tags:
+        - Active
+
+  /fish/question:
+    post:
+      summary: 答题表单
+      description: 答题表单
+      parameters:
+        - {in: formData, description: "玩家SID", name: sid, required: true, type: string }
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      responses:
+        '200':
+          description: ''
+          schema: {$ref: '#/definitions/response_question_success'}
+      tags:
+        - Active
+
+  /fish/surver:
+    post:
+      summary: 问卷表单
+      description: 问卷表单
+      parameters:
+        - {in: formData, description: "玩家SID", name: sid, required: true, type: string }
+      produces:
+        - application/json
+      consumes:
+        - application/x-www-form-urlencoded
+      responses:
+        '200':
+          description: ''
+          schema: {$ref: '#/definitions/response_surver_success'}
+      tags:
+        - Active
