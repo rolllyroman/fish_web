@@ -127,7 +127,7 @@ FISH_MENU_MODULES = (
     AccessObj(("fish", "statis"), 'GET', 'MENU_FISH_STATIS_TXT'), \
     AccessObj(("fish", "send/system/mail"), 'GET', 'MENU_FISH_SEND_MAIL_TXT'), \
     AccessObj(("fish", "props"), 'GET', 'MENU_FISH_PROPS_TXT'), \
-    AccessObj(("fish", "agent/list"), 'GET', 'MENU_FISH_GUILD_LIST'), \
+    # AccessObj(("fish", "agent/list"), 'GET', 'MENU_FISH_GUILD_LIST'), \
 
     # 捕鱼公会管理
     AccessObj(("agent"), None, 'MENU_AGENT_TXT'), \
