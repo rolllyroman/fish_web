@@ -66,98 +66,34 @@ FORMAT_PARAMS_GET_STR  = "%s = request.GET.get('%s','').strip()"
 #用户信息
 USER_INFO = ('headImgUrl', 'sex', 'isVolntExitGroup','coin','exchange_ticket')
 
-@fish_app.post('/new/login')
+@fish_app.post('/account/reg/login')
 @allow_cross
 def do_inner(redis,session):
     '''
-        一键注册登录 或 昵称登录
+        账号注册登录
     '''
     clientType = request.forms.get('clientType', '').strip()
-    action = request.forms.get('action', '').strip()
-    nickname = request.forms.get('nickname', '').strip()
+    nickname = request.forms.get('account', '').strip()
     pwd = request.forms.get('pwd', '').strip()
+    agent_id = request.forms.get('agent_id', '').strip()
 
     curTime = datetime.now()
     ip = web_util.get_ip()
     getIp = request['REMOTE_ADDR']
 
-    # 昵称登录
-    if action == '1':
-        return login_handler(redis,ip,nickname=nickname,passwd=pwd,login_type=6,clientType=clientType,session=session)
-    # 一键注册
-    elif action == '2':
-        return login_handler(redis,ip,nickname=nickname,passwd=pwd,login_type=7,clientType=clientType,session=session)
+    if len(pwd) > 20 or len(account) > 20:
+        return {"code":1,'msg':'账号密码长度不能大于20位。'}
 
-"""
-@fish_app.post('/create/role')
-#@allow_cross
-def do_inner(redis,session):
-    '''
-        创造二级账号
-    '''
-    sid = request.forms.get('sid', '').strip()
-    nickname = request.forms.get('nickname', '').strip()
+    if account in redis.smembers("register:account:set"):
+        return {"code":1,'msg':'该账号已存在。'}
 
-    if redis.sismember('fish:nickname:set',nickname):
-        return {'code':-1,'msg':'创建失败!该昵称已存在!'}
+    if agent_id not in redis.smembers("fish:agent:set"):
+        return {"code":1,'msg':'该公会不存在。'}
 
-    uid_1 = redis.hget(FORMAT_USER_HALL_SESSION%(sid),'uid')
-    final_pwd,ip = redis.hmget('users:%s'%uid_1,'password','lastLoginIP')
-    
-    c_pwd,uid = register_by_nickname(redis,ip,nickname,passwd="",alevel=2,final_pwd=final_pwd,choose_flag=2)
+    # 注册用户信息
+    uid = register_by_account(redis,ip,account,passwd,agent_id)
 
-    # 添加到一级账号的下级账号集合
-    redis.sadd('user:%s:roles:set'%uid_1,nickname)
-    # 二级拥有上级
-    redis.hset('users:%s'%uid,'senior',uid_1)
-    
-    return {'code':0,'msg':'创建成功!','uid':uid}
-
-@fish_app.post('/choose/enter')
-#@allow_cross
-def do_inner(redis,session):
-    '''
-        选择角色进入游戏
-    '''
-    sid = request.forms.get('sid', '').strip()
-    nickname = request.forms.get('nickname', '').strip()
-
-    uid_1 = redis.hget(FORMAT_USER_HALL_SESSION%(sid),'uid')
-    clientType = redis.hget('users:%s'%uid_1,'lastClientLoginType')
-
-    uid = redis.get('nickname2uid:%s'%nickname)
-
-    if redis.hget('users:%s'%uid,'senior') != uid_1:
-        return {'code':-1,'msg':'账号不匹配!'}
-         
-    final_pwd,ip = redis.hmget('users:%s'%uid,'password','lastLoginIP')
-    return login_handler(redis,ip,nickname,'',6,clientType,session,choose_flag=1)
-"""
-
-# 昵称登录处理方法
-def login_handler(redis,ip,nickname,passwd,login_type,clientType,session,choose_flag=0):
-
-    if choose_flag != 2:
-        curTime = str(datetime.now())[:10]
-        uid = redis.get('nickname2uid:%s'%nickname)
-        '''
-        # 首次昵称登录即注册 
-        if not uid:
-            # 判断昵称是否重复    
-            if redis.sismember('fish:nickname:set',nickname):
-                return {'code':-1,'msg':'昵称已存在！请换个昵称！'}
-            # 不重复则注册
-            c_pwd,uid = register_by_nickname(redis,ip,nickname,passwd,1) 
-        '''
-
-    # 快速注册登录处理
-    is_new_reg = 0
-    if login_type == 7:
-        c_pwd,uid = register_by_nickname(redis,ip,nickname,passwd,1,7) 
-        is_new_reg = 1
-        passwd = c_pwd
-    
-    # 直接登录 或 注册后登录验证
+    # 注册成功后直接登录
     # 用户信息
     alevel,account,valid,real_pwd,last_login_date = redis.hmget('users:%s'%uid,'alevel','account','valid','password','lastLoginDate') 
 
@@ -182,7 +118,6 @@ def login_handler(redis,ip,nickname,passwd,login_type,clientType,session,choose_
         if key:
             gameNum = redis.hget(key, 'game')
             if gameNum:
-                # gameId = redis.hget(ROOM2SERVER%(gameNum), 'gameid')
                 playerSid = redis.get(FORMAT_USER_PLATFORM_SESSION%(uid))
                 sendProtocol2GameService(redis, gameNum, HEAD_SERVICE_PROTOCOL_KICK_MEMBER4REPEAT%(account, playerSid))
 
@@ -231,15 +166,12 @@ def login_handler(redis,ip,nickname,passwd,login_type,clientType,session,choose_
         roles = list(redis.smembers('user:%s:roles:set'%uid))
     roles.append(redis.hget('users:%s'%uid,'nickname'))
 
-    res = {'isSpring':False,'code':0, 'sid':sid, 'userInfo':userInfo, 'loginMsg': loginMsg,'is_new_reg':is_new_reg}#'roles':roles}
+    res = {'isSpring':False,'code':0, 'sid':sid, 'userInfo':userInfo, 'loginMsg': loginMsg}
 
     # 登录时默认给安全箱上锁
     if redis.hget('users:%s'%uid,'box_pwd'):
         redis.hset('users:%s'%uid,'box_lock','1')
     
-    if is_new_reg:
-        pass
-        #res['c_pwd'] = c_pwd
     return res
 
 @fish_app.post('/login')
@@ -263,17 +195,6 @@ def do_login(redis,session):
     login_type = int(login_type or 0)
     sid=0
 
-    """
-    # 昵称登录
-    if login_type in [6,7]:
-        return login_handler(redis,ip,nickname,passwd,login_type,clientType,session)
-    # 新微信登录 或 测试账号登录
-    else:
-        # flag
-        pass
-        #return onRegFish_new(redis,_account,passwd,login_type,ip,clientType,session)
-    """
-
     try:
         log_util.debug('[on login]account[%s] clientType[%s] passwd[%s] type[%s]'%(_account, clientType, passwd, login_type))
     except Exception as e:
@@ -282,11 +203,6 @@ def do_login(redis,session):
     login_pools = redis.smembers(FORMAT_LOGIN_POOL_SET)
     log_util.debug('[try do_login] account[%s] login_pools[%s]'%(_account,login_pools))
 
-    '''
-    if _account in login_pools:
-        log_util.debug('[try do_login] account[%s] is already login.'%(_account))
-        return {'code':-2,'msg':'account in login_pools'}
-    '''
 
     redis.sadd(FORMAT_LOGIN_POOL_SET,_account)
     log_util.debug('[try do_login] account[%s] login_pools[%s]'%(_account,login_pools))
@@ -295,9 +211,6 @@ def do_login(redis,session):
     if reAccount:
         if login_type:
             realAccount = redis.get(WEIXIN2ACCOUNT%(reAccount))
-            # if not realAccount:
-                # realAccount = redis.get(WEIXIN2ACCOUNT%(reAccount))
-                # redis.set(WEIXIN2ACCOUNT%(reAccount), realAccount)
         else:
             realAccount = reAccount
         #读取昵称和group_id
@@ -397,52 +310,12 @@ def do_login(redis,session):
 
                 curDate = str(datetime.now().date())
                 print(u"判断当天时间%s" % curDate)
-                '''
-                if curDate in ["2018-02-08", "2018-02-17", "2018-02-21"]:
-                    print(u"领取排行榜的奖品:%s" % curDate)
-                    order = redis.hgetall("fish:redpick:account:hesh")
-                    __switch = {
-                        0: 8000000,
-                        1: 6000000,
-                        2: 4000000,
-                        3: 3000000,
-                        4: 3000000,
-                        5: 2000000,
-                        6: 2000000,
-                        7: 2000000,
-                        8: 1000000,
-                        9: 1000000,
-                    }
-                    order = sorted(order.items(), key=lambda x: -int(x[1]))[:10]
-                    if account in dict(order).keys():
-                        for index, value in enumerate(order):
-                            if value[0] == account:
-                                loginMsg.append("奖券排行榜第%s名,获得金币%s"% (index+1, __switch[index]))
-                                redis.hincrby(userTable, 'coin', __switch[index])
-                                break
-                '''
-
-
 
         urlRes = urlparse(request.url)
         serverIp = ''
         serverPort = 0
         gameid = 0
-        # exitPlayerData = EXIT_PLAYER%(realAccount)
-        # print '[hall][login]exitPlayerData[%s]'%(exitPlayerData)
-        # if redis.exists(exitPlayerData):
-            # serverIp, serverPort, game = redis.hmget(exitPlayerData, ('ip', 'port', 'game'))
-            # print '[hall][login]exitPlayerData get succed, ip[%s], serverPort[%s], game[%s]'%(serverIp, serverPort, game)
-            # serverIp = urlRes.netloc.split(':')[0]
-            # gameid = redis.hget(ROOM2SERVER%(game), 'gameid')
-            # try:
-                # int(gameid)
-            # except:
-                # serverIp = ''
-                # serverPort = 0
-                # gameid = 0
-                # redis.delete(exitPlayerData)
-                # print '[hall][login][delete] exitPlayerData[%s]'%(exitPlayerData)
+
         if redis.sismember(ONLINE_ACCOUNTS_TABLE4FISH, realAccount):
             key = FORMAT_CUR_USER_GAME_ONLINE%(realAccount)
             if key:

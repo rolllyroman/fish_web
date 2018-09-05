@@ -24,30 +24,21 @@ import time
 import uuid
 
 # 昵称注册
-def register_by_nickname(redis,ip,nickname,passwd="112233",alevel=1,login_type=6,final_pwd=""):
+def register_by_account(redis,ip,account,passwd,agent_id):
 
     curTime = datetime.now()
     curRegDateTable = FORMAT_REG_DATE_TABLE%(curTime.strftime("%Y-%m-%d"))
     #创建新的用户数据
     uid = redis.incr(FORMAT_USER_COUNT_TABLE)
     # 随机昵称和密码
-    c_pwd = ''
-    if login_type == 7:
-        nickname = '用户' + str(uid) + str(int(time.time()))[:3]
-        passwd = uuid.uuid4().hex[:6]
-        c_pwd = passwd
-    print '---------- pwd -----------'
-    print passwd
-    print '---------- pwd -----------'
-    account = getRandomAccount(RANDOM_ACCOUNT_COUNT, uid, redis)
     table = FORMAT_USER_TABLE%(uid)
     pipe = redis.pipeline()
     pipe.hmset(table, 
         {
             'account'       :   account, 
             'password'      :   md5.new(passwd).hexdigest() if not final_pwd else final_pwd ,
-            'nickname'      :   nickname,#userData['nickname'] if userData['nickname'] else account,
-            'name'          :   account,
+            'nickname'      :   account,
+            'name'          :   '',
             'currency'      :   'CNY', #国家需要做微信到数据库的变换映射
             'money'         :   0.0,
             'wallet'        :   0.0,
@@ -58,7 +49,7 @@ def register_by_nickname(redis,ip,nickname,passwd="112233",alevel=1,login_type=6
             'charge_count'  :   0,
             'game_count'    :   0,
             'coin_delta'    :   0,
-            'parentAg'      :   '', #上线代理需要获得
+            'parentAg'      :   agent_id, #上线代理需要获得
             'email'         :   '',
             'phone'         :   '',
             'valid'         :   1,
@@ -83,24 +74,22 @@ def register_by_nickname(redis,ip,nickname,passwd="112233",alevel=1,login_type=6
             'headImgUrl'    :   '',#userData['headimgurl'], #头像
             'unionID'       :   '',#userData['unionid'],
             'playCount'     :   0,
-            'alevel'        :   1,
             'info_comp'        :   0,
         }
     )
-    #pipe.set(WEIXIN2ACCOUNT4FISH%(unionid), account) #微信ID到账号映射
-    # pipe.sadd(ACCOUNT4WEIXIN_SET4FISH, account) #微信账号集合
-    # 添加昵称到uid映射 和 昵称集合
-    pipe.set('nickname2uid:%s'%nickname,uid) 
-    pipe.sadd('fish:nickname:set',nickname)
+    # 添加昵称到uid映射
     account2user_table = FORMAT_ACCOUNT2USER_TABLE%(account)
     # 账号uid映射
     pipe.set(account2user_table, table)
     # 日期注册账号集合
-    pipe.sadd(FORMAT_REG_DATE_TABLE4FISH%(curTime.strftime("%Y-%m-%d")), account) 
+    pipe.sadd(FORMAT_REG_DATE_TABLE4FISH%(curTime.strftime("%Y-%m-%d")), account)
+    # 账号注册账号集合
+    pipe.sadd("register:account:set",account)
+    # 公会所属uid集合
+    pipe.sadd("agent:%s:uid:set"%agent_id,uid)
     pipe.execute()    
+    return uid
 
-    return c_pwd,uid
-    
 def onRegFish_new(redis,account,passwd,type,ip,clientType,session): #传入参数：账号，密码，类型
 
     curTime = datetime.now()
