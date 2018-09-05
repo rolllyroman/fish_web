@@ -127,6 +127,7 @@ FISH_MENU_MODULES = (
     AccessObj(("fish", "statis"), 'GET', 'MENU_FISH_STATIS_TXT'), \
     AccessObj(("fish", "send/system/mail"), 'GET', 'MENU_FISH_SEND_MAIL_TXT'), \
     AccessObj(("fish", "props"), 'GET', 'MENU_FISH_PROPS_TXT'), \
+    AccessObj(("fish", "agent/list"), 'GET', 'MENU_FISH_AGENT_LIST'), \
     #捕鱼信息公告管理
     AccessObj(("notic"), None, 'MENU_NOTIC_TXT'), \
     AccessObj(("game", "broadList?broad_belone=FISH"), 'GET', 'MENU_GAME_BROAD_LIST_TXT'), \
@@ -168,6 +169,7 @@ ACCESS_SADMIN_MODULES = (
 
     AccessObj(("fish", "order/level/query_list"), 'GET', 'MENU_FISH_SETTING_LEVEL_TXT'), \
     #捕鱼数据
+    AccessObj(("fish", "agent/list"), 'GET', 'MENU_FISH_AGENT_LIST'), \
     AccessObj(("fish", "chargeAndOrder"), 'GET', 'MENU_FISH_CHARGE_AND_ORDERS'), \
     AccessObj(("fish", "item/list"), 'GET', 'MENU_FISH_ITEM_LIST_TXT'), \
     AccessObj(("fish", "statis/test"), 'GET', 'MENU_FISH_STATIS_TXT'), \
