@@ -74,15 +74,15 @@ def do_inner(redis,session):
     '''
     clientType = request.forms.get('clientType', '').strip()
     account = request.forms.get('account', '').strip()
-    pwd = request.forms.get('pwd', '').strip()
+    passwd = request.forms.get('passwd', '').strip()
     agent_id = request.forms.get('agent_id', '').strip()
 
     curTime = datetime.now()
     ip = web_util.get_ip()
     getIp = request['REMOTE_ADDR']
 
-    if len(pwd) > 20 or len(account) > 20:
-        return {"code":1,'msg':'账号密码长度不能大于20位。'}
+    if len(passwd) > 20 or len(passwd) < 6 or len(account) > 20 or len(account) < 6:
+        return {"code":1,'msg':'账号密码长度必须介于6到20位之间。'}
 
     if account in redis.smembers("register:account:set"):
         return {"code":1,'msg':'该账号已存在。'}
