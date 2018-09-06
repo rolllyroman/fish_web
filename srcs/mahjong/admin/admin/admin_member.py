@@ -36,9 +36,6 @@ def get_member_list(redis,session):
         exec("%s = request.GET.get('%s','').strip()"%(field,field))
 
     selfUid  = session['id']
-    print '-------------- session id --------------------'
-    print selfUid
-    print '-------------- session id --------------------'
     if not pageNumber:
         pageNumber = 1
     else:

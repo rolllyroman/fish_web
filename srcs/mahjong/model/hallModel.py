@@ -86,7 +86,7 @@ def register_by_account(redis,ip,account,passwd,agent_id):
     # 账号注册账号集合
     pipe.sadd("register:account:set",account)
     # 公会所属uid集合
-    pipe.sadd("agent:%s:uid:set"%agent_id,uid)
+    pipe.sadd(FORMAT_ADMIN_ACCOUNT_MEMBER_TABLE%agent_id,uid)
     pipe.execute()    
     return uid
 
