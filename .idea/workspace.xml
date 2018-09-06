@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69d504df-4bb9-4d5b-a19b-829ecbf9528a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/srcs/mahjong/mahjong/model/userModel.py" afterPath="$PROJECT_DIR$/srcs/mahjong/mahjong/model/userModel.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/srcs/mahjong/model/userModel.py" afterPath="$PROJECT_DIR$/srcs/mahjong/model/userModel.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,27 +18,17 @@
         <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/access_module.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="460">
-              <caret line="134" column="0" lean-forward="true" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+              <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_member.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/srcs/mahjong/mahjong/admin/admin_member.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="44" column="26" lean-forward="false" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userModel.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="userModel.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/srcs/mahjong/model/userModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1135">
-              <caret line="194" column="47" lean-forward="true" selection-start-line="194" selection-start-column="47" selection-end-line="194" selection-end-column="47" />
+            <state relative-caret-position="677">
+              <caret line="198" column="4" lean-forward="false" selection-start-line="198" selection-start-column="4" selection-end-line="198" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -63,21 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userModel.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/srcs/mahjong/mahjong/model/userModel.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="197" column="17" lean-forward="false" selection-start-line="197" selection-start-column="17" selection-end-line="197" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="hallModel.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/srcs/mahjong/model/hallModel.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-798">
-              <caret line="78" column="5" lean-forward="true" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
+              <caret line="78" column="5" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
               <folding>
                 <element signature="e#123#150#0" expanded="true" />
               </folding>
@@ -144,6 +125,7 @@
         <option value="$PROJECT_DIR$/srcs/mahjong/fish/fish.py" />
         <option value="$PROJECT_DIR$/srcs/mahjong/model/hallModel.py" />
         <option value="$PROJECT_DIR$/srcs/mahjong/mahjong/model/userModel.py" />
+        <option value="$PROJECT_DIR$/srcs/mahjong/model/userModel.py" />
       </list>
     </option>
   </component>
@@ -153,7 +135,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="1938" />
@@ -255,7 +237,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="1" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -455,14 +437,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/srcs/mahjong/model/userModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1135">
-          <caret line="194" column="47" lean-forward="true" selection-start-line="194" selection-start-column="47" selection-end-line="194" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/admin/admin_agent.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
@@ -474,7 +448,7 @@
     <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/access_module.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
-          <caret line="134" column="0" lean-forward="true" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -490,7 +464,7 @@
     <entry file="file://$PROJECT_DIR$/srcs/mahjong/model/hallModel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-798">
-          <caret line="78" column="5" lean-forward="true" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
+          <caret line="78" column="5" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
           <folding>
             <element signature="e#123#150#0" expanded="true" />
           </folding>
@@ -505,6 +479,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/srcs/mahjong/mahjong/model/userModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="196" column="0" lean-forward="false" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/admin/admin_member.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="592">
@@ -513,10 +495,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/srcs/mahjong/mahjong/model/userModel.py">
+    <entry file="file://$PROJECT_DIR$/srcs/mahjong/model/userModel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="197" column="17" lean-forward="false" selection-start-line="197" selection-start-column="17" selection-end-line="197" selection-end-column="17" />
+        <state relative-caret-position="677">
+          <caret line="198" column="4" lean-forward="false" selection-start-line="198" selection-start-column="4" selection-end-line="198" selection-end-column="4" />
           <folding />
         </state>
       </provider>
