@@ -235,7 +235,7 @@ def getMemberList(redis,session,selfUid,searchId,lang,pageSize,pageNumber,sort_n
     for user_info in user_info_list:
         #MEMBER_LIST_FIELDS = ('name','parentAg','roomCard','nickname','headImgUrl','last_login_date','last_logout_date','valid','open_auth')
         memberInfo = {}
-        memberInfo['name'] = redis.hget('users:%s'%user_info[0],'nickname')
+        memberInfo['name'] = redis.hget('users:%s'%user_info[0],'account')
         memberInfo['id'] = user_info[0]
         memberInfo['nickname'] = user_info[4]
         memberInfo['headImgUrl'] = user_info[5]

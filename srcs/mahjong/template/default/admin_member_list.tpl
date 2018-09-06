@@ -53,12 +53,12 @@
               sortable: true
           },{
               field: 'name',
-              title: '用户名称',
+              title: '账号',
               align: 'center',
               valign: 'middle'
           },{
               field: 'nickname',
-              title: '微信名称',
+              title: '昵称',
               align: 'center',
               valign: 'middle'
           },{
