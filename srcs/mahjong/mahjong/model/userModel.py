@@ -195,6 +195,10 @@ def getMemberList(redis,session,selfUid,searchId,lang,pageSize,pageNumber,sort_n
         memberTable = FORMAT_ADMIN_ACCOUNT_MEMBER_TABLE%(selfUid)
         memberIds = redis.smembers(memberTable)
 
+    # 修改 默认只有一层代理
+    memberTable = FORMAT_ADMIN_ACCOUNT_MEMBER_TABLE%(selfUid)
+    memberIds = redis.smembers(memberTable)
+
     total_records = len(memberIds)
     membersList,user_info_list = [],[]
     selfAccesses = eval(session['access'])
