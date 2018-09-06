@@ -350,7 +350,8 @@ ACCESS_AG_ONE_CLASS_MODULES = (
     AccessObj(("order", "buy"), 'GET', 'MENU_ORDER_BUY_TXT'), \
     AccessObj(("order", "buy/record"), 'GET', 'MENU_ORDER_BUY_RECORD_TXT'), \
     AccessObj(("order", "sale/record"), 'GET', 'MENU_ORDER_SALE_RECORD_TXT'), \
-
+    AccessObj(("fish", "chargeAndOrder"), 'GET', 'MENU_FISH_CHARGE_AND_ORDERS'), \
+ \
     AccessObj(("accounts"), None, 'MENU_ACCOUNTS_TXT',True), \
     AccessObj(("statistics","saleReport"), 'GET', 'MENU_STATISTICS_SALEREPORT_TXT'), \
     AccessObj(("statistics", "buyReport"), 'GET', 'MENU_STATISTICS_BUYREPORT_TXT'), \
@@ -369,7 +370,7 @@ ACCESS_AG_ONE_CLASS_MODULES = (
 )
 
 
-# 一级代理权限
+# 2级代理权限
 ACCESS_AG_TWO_CLASS_MODULES = (
     AccessObj(("menu"), None, 'MENU_PRIMARY_TXT',True), \
 

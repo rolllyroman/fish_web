@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69d504df-4bb9-4d5b-a19b-829ecbf9528a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/srcs/mahjong/model/userModel.py" afterPath="$PROJECT_DIR$/srcs/mahjong/model/userModel.py" />
-      <change beforePath="$PROJECT_DIR$/srcs/mahjong/template/default/admin_member_list.tpl" afterPath="$PROJECT_DIR$/srcs/mahjong/template/default/admin_member_list.tpl" />
+      <change beforePath="$PROJECT_DIR$/srcs/mahjong/admin/access_module.py" afterPath="$PROJECT_DIR$/srcs/mahjong/admin/access_module.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,21 +13,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="access_module.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="access_module.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/access_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+            <state relative-caret-position="-1131">
+              <caret line="352" column="13" lean-forward="false" selection-start-line="352" selection-start-column="13" selection-end-line="352" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userModel.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="userModel.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/srcs/mahjong/model/userModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="237" column="72" lean-forward="false" selection-start-line="237" selection-start-column="72" selection-end-line="237" selection-end-column="72" />
+            <state relative-caret-position="386">
+              <caret line="234" column="3" lean-forward="true" selection-start-line="234" selection-start-column="3" selection-end-line="234" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -130,7 +129,6 @@
       <list>
         <option value="$PROJECT_DIR$/srcs/mahjong/admin/admin/admin_fish.py" />
         <option value="$PROJECT_DIR$/srcs/mahjong/admin/admin_auth.py" />
-        <option value="$PROJECT_DIR$/srcs/mahjong/admin/access_module.py" />
         <option value="$PROJECT_DIR$/srcs/mahjong/admin/admin_member.py" />
         <option value="$PROJECT_DIR$/srcs/mahjong/admin/admin/admin_member.py" />
         <option value="$PROJECT_DIR$/srcs/mahjong/fish/fish.py" />
@@ -138,6 +136,7 @@
         <option value="$PROJECT_DIR$/srcs/mahjong/mahjong/model/userModel.py" />
         <option value="$PROJECT_DIR$/srcs/mahjong/template/default/admin_member_list.tpl" />
         <option value="$PROJECT_DIR$/srcs/mahjong/model/userModel.py" />
+        <option value="$PROJECT_DIR$/srcs/mahjong/admin/access_module.py" />
       </list>
     </option>
   </component>
@@ -464,14 +463,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/access_module.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/srcs/mahjong/model/agentModel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
@@ -532,8 +523,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/srcs/mahjong/model/userModel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="237" column="72" lean-forward="false" selection-start-line="237" selection-start-column="72" selection-end-line="237" selection-end-column="72" />
+        <state relative-caret-position="386">
+          <caret line="234" column="3" lean-forward="true" selection-start-line="234" selection-start-column="3" selection-end-line="234" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/access_module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1131">
+          <caret line="352" column="13" lean-forward="false" selection-start-line="352" selection-start-column="13" selection-end-line="352" selection-end-column="13" />
           <folding />
         </state>
       </provider>
