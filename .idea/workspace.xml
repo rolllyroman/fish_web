@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69d504df-4bb9-4d5b-a19b-829ecbf9528a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/srcs/mahjong/admin/access_module.py" afterPath="$PROJECT_DIR$/srcs/mahjong/admin/access_module.py" />
+      <change beforePath="$PROJECT_DIR$/srcs/mahjong/model/userModel.py" afterPath="$PROJECT_DIR$/srcs/mahjong/model/userModel.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="access_module.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="access_module.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/access_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="456" column="3" lean-forward="false" selection-start-line="456" selection-start-column="3" selection-end-line="456" selection-end-column="3" />
+            <state relative-caret-position="-777">
+              <caret line="452" column="27" lean-forward="false" selection-start-line="452" selection-start-column="27" selection-end-line="452" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -33,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userModel.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="userModel.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/srcs/mahjong/model/userModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="234" column="3" lean-forward="true" selection-start-line="234" selection-start-column="3" selection-end-line="234" selection-end-column="3" />
+            <state relative-caret-position="571">
+              <caret line="242" column="15" lean-forward="true" selection-start-line="242" selection-start-column="15" selection-end-line="242" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -56,8 +56,8 @@
       <file leaf-file-name="admin_member.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/admin/admin_member.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-407">
-              <caret line="44" column="26" lean-forward="false" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
+            <state relative-caret-position="592">
+              <caret line="44" column="25" lean-forward="false" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -133,7 +133,6 @@
       <find>member/list</find>
       <find>session</find>
       <find>checkLogin</find>
-      <find>getMemberLis</find>
       <find>AGENT_ID_TABLE</find>
       <find>FORMAT_ADMIN_ACCOUNT_MEMBER_TABLE</find>
       <find>省级代理</find>
@@ -144,6 +143,7 @@
       <find>chargeAndOrde</find>
       <find>sys:charge:ord</find>
       <find>fish:charg</find>
+      <find>getMemberLis</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -159,10 +159,10 @@
         <option value="$PROJECT_DIR$/srcs/mahjong/model/hallModel.py" />
         <option value="$PROJECT_DIR$/srcs/mahjong/mahjong/model/userModel.py" />
         <option value="$PROJECT_DIR$/srcs/mahjong/template/default/admin_member_list.tpl" />
-        <option value="$PROJECT_DIR$/srcs/mahjong/model/userModel.py" />
         <option value="$PROJECT_DIR$/srcs/mahjong/admin/admin/admin_fish.py" />
         <option value="$PROJECT_DIR$/srcs/mahjong/template/default/admin_fish_charge_and_order.tpl" />
         <option value="$PROJECT_DIR$/srcs/mahjong/admin/access_module.py" />
+        <option value="$PROJECT_DIR$/srcs/mahjong/model/userModel.py" />
       </list>
     </option>
   </component>
@@ -523,26 +523,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/admin/admin_member.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-407">
-          <caret line="44" column="26" lean-forward="false" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/admin/admin_agent.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
           <caret line="210" column="34" lean-forward="false" selection-start-line="210" selection-start-column="34" selection-end-line="210" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/srcs/mahjong/model/userModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="234" column="3" lean-forward="true" selection-start-line="234" selection-start-column="3" selection-end-line="234" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -581,8 +565,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/access_module.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-777">
+          <caret line="452" column="27" lean-forward="false" selection-start-line="452" selection-start-column="27" selection-end-line="452" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/admin/admin_member.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="592">
-          <caret line="456" column="3" lean-forward="false" selection-start-line="456" selection-start-column="3" selection-end-line="456" selection-end-column="3" />
+          <caret line="44" column="25" lean-forward="false" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/srcs/mahjong/model/userModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="242" column="15" lean-forward="true" selection-start-line="242" selection-start-column="15" selection-end-line="242" selection-end-column="15" />
           <folding />
         </state>
       </provider>
