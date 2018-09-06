@@ -16,8 +16,8 @@
       <file leaf-file-name="access_module.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/access_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="353" column="4" lean-forward="false" selection-start-line="353" selection-start-column="4" selection-end-line="353" selection-end-column="4" />
+            <state relative-caret-position="-8325">
+              <caret line="311" column="4" lean-forward="false" selection-start-line="311" selection-start-column="4" selection-end-line="311" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -79,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/srcs/mahjong/model/agentModel.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="506">
-              <caret line="772" column="39" lean-forward="false" selection-start-line="772" selection-start-column="39" selection-end-line="772" selection-end-column="39" />
+              <caret line="772" column="39" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -119,6 +119,7 @@
       <find>省级代理</find>
       <find>register_by_account</find>
       <find>getMemberList</find>
+      <find>TYPE2ACCESS</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -466,7 +467,7 @@
     <entry file="file://$PROJECT_DIR$/srcs/mahjong/model/agentModel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
-          <caret line="772" column="39" lean-forward="false" selection-start-line="772" selection-start-column="39" selection-end-line="772" selection-end-column="39" />
+          <caret line="772" column="39" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -531,8 +532,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/access_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="353" column="4" lean-forward="false" selection-start-line="353" selection-start-column="4" selection-end-line="353" selection-end-column="4" />
+        <state relative-caret-position="-8325">
+          <caret line="311" column="4" lean-forward="false" selection-start-line="311" selection-start-column="4" selection-end-line="311" selection-end-column="4" />
           <folding />
         </state>
       </provider>

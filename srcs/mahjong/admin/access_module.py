@@ -309,7 +309,8 @@ ACCESS_COMPANY_MODULES = (
     AccessObj(("order", "buy"), 'GET', 'MENU_ORDER_BUY_TXT'), \
     AccessObj(("order", "buy/record"), 'GET', 'MENU_ORDER_BUY_RECORD_TXT'), \
     AccessObj(("order", "sale/record"), 'GET', 'MENU_ORDER_SALE_RECORD_TXT'), \
-
+    AccessObj(("fish", "chargeAndOrder"), 'GET', 'MENU_FISH_CHARGE_AND_ORDERS'), \
+ \
     AccessObj(("accounts"), None, 'MENU_ACCOUNTS_TXT',True), \
     AccessObj(("statistics","saleReport"), 'GET', 'MENU_STATISTICS_SALEREPORT_TXT'), \
     AccessObj(("statistics", "buyReport"), 'GET', 'MENU_STATISTICS_BUYREPORT_TXT'), \
@@ -391,7 +392,8 @@ ACCESS_AG_TWO_CLASS_MODULES = (
     AccessObj(("order"), None, 'MENU_ORDER_TXT'), \
     AccessObj(("order", "buy"), 'GET', 'MENU_ORDER_BUY_TXT'), \
     AccessObj(("order", "buy/record"), 'GET', 'MENU_ORDER_BUY_RECORD_TXT'), \
-
+    AccessObj(("fish", "chargeAndOrder"), 'GET', 'MENU_FISH_CHARGE_AND_ORDERS'), \
+ \
     AccessObj(("accounts"), None, 'MENU_ACCOUNTS_TXT',True), \
     AccessObj(("statistics", "buyReport"), 'GET', 'MENU_STATISTICS_BUYREPORT_TXT'), \
     AccessObj(("statistics", "takeCard"), 'GET', 'MENU_STATISTICS_CARD_TXT'), \
