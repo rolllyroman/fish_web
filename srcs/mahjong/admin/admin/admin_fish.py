@@ -33,14 +33,6 @@ MAIL_ITEMS = [
     {'title':'弹头','field':'2'},
 ]
 
-@admin_app.get('/fish/agent/list')
-@checkAccess
-def do_inner(redis,session):
-    """
-        捕鱼公会列表
-    """
-
-
 @admin_app.get('/fish/item/can_use')
 @checkAccess
 def do_inner(redis,session):
@@ -56,7 +48,7 @@ def do_inner(redis,session):
 @checkAccess
 def do_inner(redis,session):
     """
-       道具列表
+       订单充值列表
     """
     lang = getLang()
     isList = request.GET.get('list','').strip()
@@ -73,8 +65,8 @@ def do_inner(redis,session):
 
     if isList:
         data = []
-        for order in redis.smembers("sys:charge:orders"):
-            data.append(redis.hgetall("sys:charge:order:%s"%order)) 
+        for order in redis.smembers("fish:charge:orders"):
+            data.append(redis.hgetall("fish:charge:order:%s"%order))
         return {"count":len(data),"data":data}
     else:
         return template('admin_fish_charge_and_order',info=info,lang=lang,RES_VERSION=RES_VERSION,post_res=post_res)
@@ -184,15 +176,15 @@ def do_inner(redis,session):
     if not redis.exists("users:%s"%uid):
         redirect(BACK_PRE + "/fish/sys/charge?post_res=1")
 
-
     coin = int(coin) 
     pipe = redis.pipeline()
     pipe.watch("users:%s"%uid)
     pipe.multi()
     pipe.hincrby("users:%s"%uid,"coin",coin)
-    order_id = int(redis.scard("sys:charge:orders") or 0) + 1
-    pipe.sadd("sys:charge:orders",order_id)
-    pipe.hmset("sys:charge:order:%s"%order_id,{
+    order_id = int(redis.scard("fish:charge:orders") or 0) + 1
+    pipe.sadd("fish:charge:orders",order_id)
+    pipe.hmset("fish:charge:order:%s"%order_id,{
+        "charger":session['id'],
         "order_no":order_id,
         "datetime":str(datetime.now())[:19],
         "coin":coin,

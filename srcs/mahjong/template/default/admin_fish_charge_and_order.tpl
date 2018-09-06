@@ -33,6 +33,12 @@
               valign: 'middle',
               sortable: true
           },{
+              field: 'charger',
+              title: '充值者',
+              align: 'center',
+              valign: 'middle',
+              sortable: true
+          },{
               field: 'uid',
               title: '充值用户',
               align: 'center',
