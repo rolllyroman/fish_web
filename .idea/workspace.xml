@@ -16,8 +16,8 @@
       <file leaf-file-name="access_module.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/access_module.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1131">
-              <caret line="352" column="13" lean-forward="false" selection-start-line="352" selection-start-column="13" selection-end-line="352" selection-end-column="13" />
+            <state relative-caret-position="370">
+              <caret line="310" column="4" lean-forward="false" selection-start-line="310" selection-start-column="4" selection-end-line="310" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -531,8 +531,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/srcs/mahjong/admin/access_module.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1131">
-          <caret line="352" column="13" lean-forward="false" selection-start-line="352" selection-start-column="13" selection-end-line="352" selection-end-column="13" />
+        <state relative-caret-position="370">
+          <caret line="310" column="4" lean-forward="false" selection-start-line="310" selection-start-column="4" selection-end-line="310" selection-end-column="4" />
           <folding />
         </state>
       </provider>
