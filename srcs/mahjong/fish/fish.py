@@ -73,7 +73,7 @@ def do_inner(redis,session):
         账号注册登录
     '''
     clientType = request.forms.get('clientType', '').strip()
-    nickname = request.forms.get('account', '').strip()
+    account = request.forms.get('account', '').strip()
     pwd = request.forms.get('pwd', '').strip()
     agent_id = request.forms.get('agent_id', '').strip()
 
