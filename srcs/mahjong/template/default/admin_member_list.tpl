@@ -74,13 +74,13 @@
               valign: 'middle',
               sortable: true
           },{
-              %if info.has_key('fish'):
-                  field : 'coin',
-                  title : '金币剩余',
-              %else:
-                  field : 'roomcard',
-                  title : '钻石剩余',
-              %end
+              field: 'coin',
+              title: '金币剩余',
+              align: 'center',
+              valign: 'middle'
+          },{
+              field : 'roomcard',
+              title : '钻石剩余',
               align: 'center',
               valign: 'middle',
               sortable: true,
