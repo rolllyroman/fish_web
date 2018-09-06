@@ -36,7 +36,7 @@ def register_by_account(redis,ip,account,passwd,agent_id):
     pipe.hmset(table, 
         {
             'account'       :   account, 
-            'password'      :   md5.new(passwd).hexdigest() if not final_pwd else final_pwd ,
+            'password'      :   md5.new(passwd).hexdigest() ,
             'nickname'      :   account,
             'name'          :   '',
             'currency'      :   'CNY', #国家需要做微信到数据库的变换映射
