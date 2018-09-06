@@ -87,7 +87,7 @@ def do_inner(redis,session):
     if account in redis.smembers("register:account:set"):
         return {"code":1,'msg':'该账号已存在。'}
 
-    if agent_id not in redis.smembers("fish:agent:set"):
+    if agent_id not in redis.smembers(AGENT_ID_TABLE):
         return {"code":1,'msg':'该公会不存在。'}
 
     # 注册用户信息
