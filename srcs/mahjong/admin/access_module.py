@@ -454,6 +454,9 @@ ACCESS_SADMIN_LIST = (
 )
 # 总公司权限
 ACCESS_COMPANY_LIST = (
+    AccessObj(("fish", "sys/charge"), 'GET', 'FISH_ROOM_CREATE_TXT'), \
+    AccessObj(("fish", "sys/charge"), 'POST', 'FISH_ROOM_CREATE_TXT'), \
+
     AccessObj(("agent", "list"), 'GET', 'MENU_AGENT_LIST_TXT'), \
     AccessObj(("agent", "create"), 'GET', 'LIST_AGENT_CREATE_TXT'), \
     AccessObj(("agent", "modify"), 'GET', 'LIST_AGENT_MODIFY_TXT'), \
